@@ -5,14 +5,41 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/reset.css">
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <header>
         <a>View high scores</a>
-        <h2>Time:</h2>
+        <h2 class="timer">Time: 0</h2>
     </header>
+    <section id="card-start">
+        <h1>Coding Quiz Challenge</h1>
+        <p>
+            Try to answer the following code-related questions within the time limit.
+            Keep in mind that incorrect answers will penalize your score/time by 10 seconds!
+        </p>
+        <button class="start-button">Start Quiz</button>
+    </section>
+    <section class="hidden">
+        <h3 class="questions"></h3>
+        <ol>
+            <li>
+                <input type="button" value=" " class="answer1" id="one"/>
+            </li>
+            <li>
+                <input type="button" value=" " class="answer2" id="two"/>
+            </li>
+            <li>
+                <input type="button" value=" " class="answer3" id="three"/>
+            </li>
+            <li>
+                <input type="button" value=" " class="answer4" id="four"/>
+            </li>
+        </ol>
+        <p class="result"></p>
+    </section>
 
-    <script href="./assets/script.js"></script>
+    <script src="./assets/script.js"></script>
 </body>
 </html>
