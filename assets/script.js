@@ -56,7 +56,6 @@ function startTimer() {
 var currentQuestion = 1;
 
 function renderQuestions() {
-    console.log(currentQuestion);
         if (currentQuestion === 1) {
             question.textContent = questions[0];
             answerOne.value = answersQ1[0];
