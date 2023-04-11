@@ -4,6 +4,12 @@ var startPage = document.getElementById("card-start");
 var hiddenQuestions = document.querySelector(".hidden");
 var submit = document.querySelector(".submit");
 var submitButton = document.querySelector(".submit-button");
+var answerResult = document.querySelector(".result");
+var header = document.querySelector(".header");
+var scorePage = document.querySelector(".score-page");
+var highScoreList = document.querySelector(".high-scores");
+var goBackButton = document.querySelector(".go-back");
+var clearScoreButton = document.querySelector(".clear-scores");
 
 var secondsLeft = 75;
 
@@ -97,21 +103,30 @@ function renderQuestions() {
 function checkValidity() {
     if (currentQuestion == 2 && userChoice !== 3) {
         secondsLeft = Math.floor(secondsLeft - 10);
+        answerResult.textContent = "Wrong!"
     } else if (currentQuestion == 3 && userChoice !== 2) {
         secondsLeft = Math.floor(secondsLeft - 10);
+        answerResult.textContent = "Wrong!"
     } else if (currentQuestion == 4 && userChoice !== 4) {
         secondsLeft = Math.floor(secondsLeft - 10);
+        answerResult.textContent = "Wrong!"
     } else if (currentQuestion == 5 && userChoice !== 3) {
         secondsLeft = Math.floor(secondsLeft - 10);
+        answerResult.textContent = "Wrong!"
     } else if (currentQuestion == 6 && userChoice !== 4) {
         secondsLeft = Math.floor(secondsLeft - 10);
+        answerResult.textContent = "Wrong!";
     } else {
+        answerResult.textContent ="Correct!";
         return;
     }
 }
 
-function toggleSubmit() {
+function pressSubmit(event) {
+    event.preventDefault();
     submit.style.display = "none";
+    header.style.display = "none";
+    scorePage.style.display = "inline";
 }
 
 buttonChoice1 = document.querySelector("#one").onclick = function() {
@@ -137,4 +152,4 @@ buttonChoice4 = document.querySelector("#four").onclick = function() {
 
 startButton.addEventListener("click", startGame);
 
-submitButton.addEventListener("click", toggleSubmit);
+submitButton.addEventListener("click", pressSubmit);
