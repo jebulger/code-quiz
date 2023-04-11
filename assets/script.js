@@ -50,36 +50,37 @@ function startTimer() {
     }, 1000)
 }
 
-var questionNumber;
+var currentQuestion = 1;
 
 function renderQuestions() {
-    for (i = 0; i < questions.length; i++) {
-        currentQuestion = i;
-        questionNumber = currentQuestion;
-        if (currentQuestion = 1) {
+        if (currentQuestion === 1) {
             question.textContent = questions[0];
             answerOne.value = answersQ1[0];
             answerTwo.value = answersQ1[1];
             answerThree.value = answersQ1[2];
             answerFour.value = answersQ1[3];
-        } else if (currentQuestion = 2) {
+            currentQuestion++;
+        } else if (currentQuestion === 2) {
             question.textContent = questions[1];
             answerOne.value = answersQ2[0];
             answerTwo.value = answersQ2[1];
             answerThree.value = answersQ2[2];
             answerFour.value = answersQ2[3];
-        } else if (currentQuestion = 3) {
-            question.textcontent = questions[2];
+            currentQuestion++;
+        } else if (currentQuestion === 3) {
+            question.textContent = questions[2];
             answerOne.value = answersQ3[0];
             answerTwo.value = answersQ3[1];
             answerThree.value = answersQ3[2];
             answerFour.value = answersQ3[3];
-        } else if (currentQuestion = 4) {
+            currentQuestion++;
+        } else if (currentQuestion === 4) {
             question.textContent = questions[3];
             answerOne.value = answersQ4[0];
             answerTwo.value = answersQ4[1];
             answerThree.value = answersQ4[2];
             answerFour.value = answersQ4[3];
+            currentQuestion++;
         } else {
             question.textContent = questions[4];
             answerOne.value = answersQ5[0];
@@ -87,20 +88,23 @@ function renderQuestions() {
             answerThree.value = answersQ5[2];
             answerFour.value = answersQ5[3];
         }
-    }
 }
 
 buttonChoice1 = document.querySelector("#one").onclick = function() {
     userChoice = 1;
+    renderQuestions();
 }
 buttonChoice2 = document.querySelector("#two").onclick = function () {
     userChoice = 2;
+    renderQuestions();
 }
 buttonChoice3 = document.querySelector("#three").onclick = function () {
     userChoice = 3;
+    renderQuestions();
 }
 buttonChoice4 = document.querySelector("#four").onclick = function() {
     userChoice = 4;
+    renderQuestions();
 }
 
 startButton.addEventListener("click", startGame);
