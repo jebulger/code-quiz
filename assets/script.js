@@ -3,6 +3,8 @@ var timerText = document.querySelector(".timer");
 var startPage = document.getElementById("card-start");
 var hiddenQuestions = document.querySelector(".hidden");
 
+var secondsLeft;
+
 var question = document.querySelector(".questions");
 
 var answerOne = document.querySelector(".answer1");
@@ -10,10 +12,8 @@ var answerTwo = document.querySelector(".answer2");
 var answerThree = document.querySelector(".answer3");
 var answerFour = document.querySelector(".answer4");
 
-var buttonChoice1 = document.getElementById("one");
-var buttonChoice2 = document.getElementById("two");
-var buttonChoice3 = document.getElementById("three");
-var buttonChoice4 = document.getElementById("four");
+var userChoice;
+var correctAnswer;
 
 var questions = [
     "Commonly used data types DO Not include:",
@@ -50,9 +50,12 @@ function startTimer() {
     }, 1000)
 }
 
+var questionNumber;
+
 function renderQuestions() {
     for (i = 0; i < questions.length; i++) {
-        currentQuestion = i
+        currentQuestion = i;
+        questionNumber = currentQuestion;
         if (currentQuestion = 1) {
             question.textContent = questions[0];
             answerOne.value = answersQ1[0];
@@ -87,4 +90,22 @@ function renderQuestions() {
     }
 }
 
+buttonChoice1 = document.querySelector("#one").onclick = function() {
+    userChoice = 1;
+}
+buttonChoice2 = document.querySelector("#two").onclick = function () {
+    userChoice = 2;
+}
+buttonChoice3 = document.querySelector("#three").onclick = function () {
+    userChoice = 3;
+}
+buttonChoice4 = document.querySelector("#four").onclick = function() {
+    userChoice = 4;
+}
+
 startButton.addEventListener("click", startGame);
+
+// buttonChoice1.addEventListener("click");
+// buttonChoice2.addEventListener("click");
+// buttonChoice3.addEventListener("click");
+// buttonChoice4.addEventListener("click");
