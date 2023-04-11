@@ -2,8 +2,10 @@ var startButton = document.querySelector(".start-button");
 var timerText = document.querySelector(".timer");
 var startPage = document.getElementById("card-start");
 var hiddenQuestions = document.querySelector(".hidden");
+var submit = document.querySelector(".submit");
+var submitButton = document.querySelector(".submit-button");
 
-var secondsLeft;
+var secondsLeft = 75;
 
 var question = document.querySelector(".questions");
 
@@ -12,7 +14,7 @@ var answerTwo = document.querySelector(".answer2");
 var answerThree = document.querySelector(".answer3");
 var answerFour = document.querySelector(".answer4");
 
-var userChoice;
+var userChoice = 0;
 var correctAnswer;
 
 var questions = [
@@ -38,7 +40,6 @@ function startGame() {
 }
 
 function startTimer() {
-    var secondsLeft = 75;
     timerText.textContent = "Time: " + secondsLeft;
     var timerInterval = setInterval(function () {
         secondsLeft--;
@@ -46,6 +47,8 @@ function startTimer() {
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             timerText.textContent = " ";
+            submit.style.display = "inline";
+            hiddenQuestions.style.display = "none";
         }
     }, 1000)
 }
@@ -53,6 +56,7 @@ function startTimer() {
 var currentQuestion = 1;
 
 function renderQuestions() {
+    console.log(currentQuestion);
         if (currentQuestion === 1) {
             question.textContent = questions[0];
             answerOne.value = answersQ1[0];
@@ -87,29 +91,51 @@ function renderQuestions() {
             answerTwo.value = answersQ5[1];
             answerThree.value = answersQ5[2];
             answerFour.value = answersQ5[3];
+            currentQuestion++;
         }
+}
+
+function checkValidity() {
+    if (currentQuestion == 2 && userChoice !== 3) {
+        secondsLeft = Math.floor(secondsLeft - 10);
+    } else if (currentQuestion == 3 && userChoice !== 2) {
+        secondsLeft = Math.floor(secondsLeft - 10);
+    } else if (currentQuestion == 4 && userChoice !== 4) {
+        secondsLeft = Math.floor(secondsLeft - 10);
+    } else if (currentQuestion == 5 && userChoice !== 3) {
+        secondsLeft = Math.floor(secondsLeft - 10);
+    } else if (currentQuestion == 6 && userChoice !== 4) {
+        secondsLeft = Math.floor(secondsLeft - 10);
+    } else {
+        return;
+    }
+}
+
+function toggleSubmit() {
+    submit.style.display = "none";
 }
 
 buttonChoice1 = document.querySelector("#one").onclick = function() {
     userChoice = 1;
+    checkValidity();
     renderQuestions();
 }
 buttonChoice2 = document.querySelector("#two").onclick = function () {
     userChoice = 2;
+    checkValidity();
     renderQuestions();
 }
 buttonChoice3 = document.querySelector("#three").onclick = function () {
     userChoice = 3;
+    checkValidity();
     renderQuestions();
 }
 buttonChoice4 = document.querySelector("#four").onclick = function() {
     userChoice = 4;
+    checkValidity();
     renderQuestions();
 }
 
 startButton.addEventListener("click", startGame);
 
-// buttonChoice1.addEventListener("click");
-// buttonChoice2.addEventListener("click");
-// buttonChoice3.addEventListener("click");
-// buttonChoice4.addEventListener("click");
+submitButton.addEventListener("click", toggleSubmit);
