@@ -23,6 +23,8 @@ var answerFour = document.querySelector(".answer4");
 var userChoice = 0;
 var correctAnswer;
 
+var userScore = 0;
+
 var questions = [
     "Commonly used data types DO Not include:",
     "The condition in an if/else statement is enclosed with:________.",
@@ -90,13 +92,22 @@ function renderQuestions() {
             answerThree.value = answersQ4[2];
             answerFour.value = answersQ4[3];
             currentQuestion++;
-        } else {
+        } else if (currentQuestion === 5) {
             question.textContent = questions[4];
             answerOne.value = answersQ5[0];
             answerTwo.value = answersQ5[1];
             answerThree.value = answersQ5[2];
             answerFour.value = answersQ5[3];
             currentQuestion++;
+        } else {
+            hiddenQuestions.style.display = "none";
+            submit.style.display = "inline";
+            userScore = secondsLeft;
+            timerText.style.display = "none";
+            setTimeout(() => {
+                answerResult.style.display = "none";
+            }
+            , 2500);
         }
 }
 
