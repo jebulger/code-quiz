@@ -136,7 +136,11 @@ function pressSubmit(event) {
     event.preventDefault();
     var userSubmission = document.querySelector(".user-submission").value;
     var scoreEntry = userSubmission + " - " + userScore;
-    localStorage.setItem("scoreEntries", scoreEntry);
+    var scoreArr = [];
+    var allScores = localStorage.getItem("scoreEntries")
+    scoreArr.push(scoreEntry);
+    scoreArr.push(allScores);
+    localStorage.setItem("scoreEntries", scoreArr);
     window.location.href="high-score-page.html";
 }
 

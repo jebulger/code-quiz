@@ -3,26 +3,24 @@ var goBackButton = document.querySelector(".go-back");
 var clearScoreButton = document.querySelector(".clear-scores");
 var highScoreList = document.getElementById("list");
 
-console.log(localStorage);
-
 var scoreEntries = localStorage.getItem("scoreEntries");
 
 function renderScores() {
-    if (scoreEntries === null) {
-        highScoreList.style.display = "none";
-    } else {
-        for (i = 0; i <= Storage.length; i++) {
+    if (scoreEntries !== null) {
+        var scoreArr = scoreEntries.split(",");
+        for (i = 0; i < (scoreArr.length - 1); i++) {
+            var scoreIndex = i;
             var li = document.createElement("li");
             document.querySelector(".high-scores").appendChild(li);
-            li.textContent = (i + 1) + ". " + scoreEntries;
-            console.log(scoreEntries);
+            li.textContent = (scoreIndex + 1) + ". " + scoreArr[i];
         }
+    } else {
+        highScoreList.style.display = "none";
+        return;
     }
 }
 
 renderScores();
-
-console.log(scoreEntries);
 
 goBackButton = document.querySelector(".go-back").onclick = function() {
     window.location.href="index.html";
