@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Code Quiz</title>
     <link rel="stylesheet" href="./assets/reset.css">
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
     <header class="header">
-        <a href="#">View high scores</a>
+        <a href="high-score-page.html">View high scores</a>
         <h2 class="timer">Time: 0</h2>
     </header>
     <section id="card-start">
@@ -44,18 +44,11 @@
         <h3>All Done!</h3>
         <p class="final-score"></p>
         <label>Enter initials:</label>
-        <input type="text">
+        <input type="text" class="user-submission">
         <input type="submit" class="submit-button">
     </form>
 
     <p class="result"></p>
-
-    <section class="score-page">
-        <h3>High Scores</h3>
-        <ol class="high-scores"></ol>
-        <button class="go-back">Go Back</button>
-        <button class="clear-scores">Clear High Scores</button>
-    </section>
 
     <script src="./assets/script.js"></script>
 </body>

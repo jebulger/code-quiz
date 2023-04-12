@@ -6,10 +6,7 @@ var submit = document.querySelector(".submit");
 var submitButton = document.querySelector(".submit-button");
 var answerResult = document.querySelector(".result");
 var header = document.querySelector(".header");
-var scorePage = document.querySelector(".score-page");
-var highScoreList = document.querySelector(".high-scores");
-var goBackButton = document.querySelector(".go-back");
-var clearScoreButton = document.querySelector(".clear-scores");
+var userSubmission = document.querySelector(".user-submission");
 
 var secondsLeft = 75;
 
@@ -133,11 +130,14 @@ function checkValidity() {
     }
 }
 
+var userName = "";
+var score = "";
+
 function pressSubmit(event) {
     event.preventDefault();
-    submit.style.display = "none";
-    header.style.display = "none";
-    scorePage.style.display = "inline";
+    localStorage.setItem("userName", JSON.stringify(userSubmission));
+    localStorage.setItem("score", userScore);
+    window.location.href="high-score-page.html";
 }
 
 buttonChoice1 = document.querySelector("#one").onclick = function() {
