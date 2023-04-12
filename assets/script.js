@@ -6,7 +6,6 @@ var submit = document.querySelector(".submit");
 var submitButton = document.querySelector(".submit-button");
 var answerResult = document.querySelector(".result");
 var header = document.querySelector(".header");
-var userSubmission = document.querySelector(".user-submission");
 
 var secondsLeft = 75;
 
@@ -135,8 +134,9 @@ var score = "";
 
 function pressSubmit(event) {
     event.preventDefault();
-    localStorage.setItem("userName", JSON.stringify(userSubmission));
-    localStorage.setItem("score", userScore);
+    var userSubmission = document.querySelector(".user-submission").value;
+    var scoreEntry = userSubmission + " - " + userScore;
+    localStorage.setItem("scoreEntries", scoreEntry);
     window.location.href="high-score-page.html";
 }
 
