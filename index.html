@@ -22,7 +22,7 @@
         <button class="start-button">Start Quiz</button>
     </section>
 
-    <section class="hidden">
+    <section class="hidden" id="questions">
         <h3 class="questions"></h3>
         <ol class="answers">
             <li>
@@ -43,9 +43,11 @@
     <form class="submit">
         <h3>All Done!</h3>
         <p class="final-score"></p>
-        <label>Enter initials:</label>
-        <input type="text" class="user-submission">
-        <input type="submit" class="submit-button">
+        <div class="flex-container">
+            <label>Enter initials:</label>
+            <input type="text" class="user-submission">
+            <input type="submit" class="submit-button">
+        </div>
     </form>
 
     <p class="result"></p>

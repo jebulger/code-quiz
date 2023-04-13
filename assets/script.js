@@ -1,11 +1,12 @@
 var startButton = document.querySelector(".start-button");
 var timerText = document.querySelector(".timer");
 var startPage = document.getElementById("card-start");
-var hiddenQuestions = document.querySelector(".hidden");
+var hiddenQuestions = document.querySelector("#questions");
 var submit = document.querySelector(".submit");
 var submitButton = document.querySelector(".submit-button");
 var answerResult = document.querySelector(".result");
 var header = document.querySelector(".header");
+var finalScore = document.querySelector(".final-score");
 
 var secondsLeft = 75;
 
@@ -35,11 +36,15 @@ var answersQ3 = ["1. numbers and strings", "2. other arrays", "3. booleans", "4.
 var answersQ4 = ["1. commas", "2. curly brackets", "3. quotes", "4. parenthesis"]
 var answersQ5 = ["1. JavaScript", "2. terminal/bash", "3. for loops", "4. console.log"]
 
+hiddenQuestions.classList.add("hidden")
+submit.classList.add("hidden");
+
 function startGame() {
     startButton.disabled = true;
     startTimer()
     startPage.style.display = "none";
-    hiddenQuestions.style.display = "inline";
+    hiddenQuestions.classList.remove("hidden");
+    hiddenQuestions.classList.add("questions-revealed")
     renderQuestions()
 }
 
@@ -51,8 +56,16 @@ function startTimer() {
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             timerText.textContent = " ";
-            submit.style.display = "inline";
-            hiddenQuestions.style.display = "none";
+            submit.classList.remove("hidden");
+            submit.classList.add("submit-styling");
+            finalScore.textContent = "Your final score is: " + secondsLeft;
+            hiddenQuestions.classList.remove("questions-revealed");
+            hiddenQuestions.classList.add("hidden");
+            answerResult.style.marginLeft = "15vw";
+            setTimeout(() => {
+                answerResult.style.display = "none";
+            }
+            , 2500);
         }
     }, 1000)
 }
@@ -97,9 +110,12 @@ function renderQuestions() {
             currentQuestion++;
         } else {
             hiddenQuestions.style.display = "none";
-            submit.style.display = "inline";
+            submit.classList.remove("hidden");
+            submit.classList.add("submit-styling");
+            finalScore.textContent = "Your final score is: " + secondsLeft;
             userScore = secondsLeft;
             timerText.style.display = "none";
+            answerResult.style.marginLeft = "15vw";
             setTimeout(() => {
                 answerResult.style.display = "none";
             }
@@ -111,6 +127,7 @@ function checkValidity() {
     if (currentQuestion == 2 && userChoice !== 3) {
         secondsLeft = Math.floor(secondsLeft - 10);
         answerResult.textContent = "Wrong!"
+        answerResult.style.borderTop = "1px solid slategray";
     } else if (currentQuestion == 3 && userChoice !== 2) {
         secondsLeft = Math.floor(secondsLeft - 10);
         answerResult.textContent = "Wrong!"
@@ -125,6 +142,7 @@ function checkValidity() {
         answerResult.textContent = "Wrong!";
     } else {
         answerResult.textContent ="Correct!";
+        answerResult.style.borderTop = "1px solid slategray";
         return;
     }
 }

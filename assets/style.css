@@ -1,7 +1,180 @@
+:root {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+button,
+.questions-revealed li input {
+    font-size: 1.5rem;
+    background-color: rgb(131, 0, 253);
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+    align-self: center;
+    padding: 10px;
+}
+
+button:hover,
+.questions-revealed li input:hover {
+    background-color: rgb(234, 0, 255);
+    cursor: pointer;
+}
+
+h2, a {
+    font-size: 1.3rem;
+}
+
+a {
+    color: rgb(234, 0, 255)
+}
+
+#card-start p {
+    font-size: 1.8rem;
+    margin-bottom: 3vh;
+}
+
+.header {
+    margin: 2vh;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header a {
+    text-decoration: none;
+}
+
 .hidden {
     display: none;
 }
 
-.submit {
-    display: none;
+#card-start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 8vw 10vw 0 10vw;
+}
+
+#card-start h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 3vh;
+}
+
+#card-start p {
+    width: 100%;
+    height: auto;
+    display: flex;
+    text-align: center;
+}
+
+.questions-revealed {
+    margin: 0 10vw 0 10vw;
+    align-items: center;
+}
+
+.questions-revealed h3 {
+    margin: 4rem 0 1.5rem 0;
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+.questions-revealed li {
+    margin-bottom: .5rem;
+}
+
+.result {
+    margin-top: 1rem;
+    margin-left: 10vw;
+    font-size: 1.8rem;
+    color: slategray;
+    max-width: 70vw;
+}
+
+.submit-styling {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 5vh 15vw 0 15vw;
+}
+
+.submit-styling h3 {
+    font-size: 2.3rem;
+    margin-bottom: 1.2rem;
+}
+
+.final-score {
+    font-weight: normal;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.flex-container {
+    display: inline-flex;
+}
+
+.flex-container label {
+    padding-right: 2rem;
+    padding-top: .5rem;
+    font-size: 1.4rem;
+}
+
+input.user-submission {
+    width: 30vw;
+}
+
+.flex-container input.submit-button {
+    font-size: 1rem;
+    background-color: rgb(131, 0, 253);
+    color: white;
+    border-radius: 10px;
+    width: fit-content;
+    height: auto;
+    align-self: center;
+    padding: 10px;
+}
+
+.flex-container input.submit-button:hover {
+    background-color:rgb(234, 0, 255);
+    cursor: pointer;
+}
+
+.submit-button {
+    margin-left: 2rem;
+}
+
+.score-page {
+    margin: 10vh 20vw 10vh 35vw;
+    line-height: 2rem;
+}
+
+.score-page button {
+    font-size: 1rem;
+    width: fit-content;
+    height: auto;
+    margin-top: 1.2rem;
+}
+
+.score-page h3 {
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+.score-page ol {
+    margin-top: 1.2rem;
+    background-color: gainsboro;
+}
+
+@media screen and (max-width: 440px) {
+    .flex-container label {
+        padding-right: 1rem;
+        padding-top: .2rem;
+        font-size: 1.4rem;
+    }
+    .submit-button {
+        margin-left: 1rem;
+    }
+    .flex-container input.submit-button {
+        margin-left: 5px;
+    }
 }
