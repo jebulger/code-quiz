@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
+    <!-- Header containing link to high score page and the timer -->
     <header class="header">
         <a href="high-score-page.html">View high scores</a>
         <h2 class="timer">Time: 0</h2>
     </header>
+    <!-- Section contains the starting title, message explaining the quiz, and a button to start it -->
     <section id="card-start">
         <h1>Coding Quiz Challenge</h1>
         <p>
@@ -21,7 +23,7 @@
         </p>
         <button class="start-button">Start Quiz</button>
     </section>
-
+    <!-- Section is dynamically updated through javascript to display the questions and button choices -->
     <section class="hidden" id="questions">
         <h3 class="questions"></h3>
         <ol class="answers">
@@ -39,7 +41,7 @@
             </li>
         </ol>
     </section>
-
+    <!-- Form contains the end game message, final score, and displays an input box for the user to type their initials -->
     <form class="submit">
         <h3>All Done!</h3>
         <p class="final-score"></p>
@@ -50,6 +52,8 @@
         </div>
     </form>
 
+    <!-- Couldn't think of a good parent to wrap this in, so I kept it by itself -->
+    <!-- This p tag is dynamically updated through javascript once any question has been answered -->
     <p class="result"></p>
 
     <script src="./assets/script.js"></script>
